@@ -1,8 +1,10 @@
 📝 Todo List App
+
 Una aplicación sencilla de lista de tareas (Todo List) desarrollada con React, TypeScript y Vite.
 Este proyecto tiene como objetivo principal practicar y afianzar conocimientos en TypeScript, además de explorar buenas prácticas en desarrollo con React moderno.
 
 🚀 Tecnologías utilizadas
+
 ⚛️ React
 
 💬 TypeScript
@@ -22,11 +24,11 @@ Este proyecto tiene como objetivo principal practicar y afianzar conocimientos e
 
 🔍 Filtrar tareas por:
 
-    ·Todas
+·Todas
 
-    ·Solo completadas
+·Solo completadas
 
-    ·Solo pendientes
+·Solo pendientes
 
 🎯 Objetivo del proyecto
 Este proyecto fue creado como una forma de:
