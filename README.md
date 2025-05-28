@@ -1,55 +1,47 @@
-# React + TypeScript + Vite
+📝 Todo List App
+Una aplicación sencilla de lista de tareas (Todo List) desarrollada con React, TypeScript y Vite.
+Este proyecto tiene como objetivo principal practicar y afianzar conocimientos en TypeScript, además de explorar buenas prácticas en desarrollo con React moderno.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Tecnologías utilizadas
+⚛️ React
 
-Currently, two official plugins are available:
+💬 TypeScript
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+⚡ Vite
 
-## Expanding the ESLint configuration
+🎨 CSS (+tailwind)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+✨ Características
+➕ Añadir nuevas tareas con una descripción personalizada
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
+✅ Marcar tareas como completadas
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+📝 Editar una tarea ya añadida
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+❌ Eliminar tareas de la lista
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    "react-x": reactX,
-    "react-dom": reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs["recommended-typescript"].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
-```
-# toDoListTS
+🔍 Filtrar tareas por:
+
+    ·Todas
+
+    ·Solo completadas
+
+    ·Solo pendientes
+
+🎯 Objetivo del proyecto
+Este proyecto fue creado como una forma de:
+
+Practicar el tipado estático con TypeScript
+
+Mejorar la comprensión de componentes funcionales en React
+
+Explorar la configuración y ventajas de Vite como entorno de desarrollo
+
+🧠 Aprendizajes
+Durante el desarrollo de este proyecto, aprendí a:
+
+Usar interfaces y tipos en TypeScript para mejorar la seguridad del código
+
+Manejar el estado y eventos en React con un enfoque tipado
+
+Configurar un proyecto desde cero con Vite
