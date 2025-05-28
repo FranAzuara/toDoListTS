@@ -35,6 +35,7 @@ Este proyecto tiene como objetivo principal practicar y afianzar conocimientos e
 
 
 🎯 OBJETIVOS DEL PROYECTO
+
   Este proyecto fue creado como una forma de:
 
   Practicar el tipado estático con TypeScript
@@ -45,6 +46,7 @@ Este proyecto tiene como objetivo principal practicar y afianzar conocimientos e
 
 
 🧠 APRENDIZAJES
+
   Durante el desarrollo de este proyecto, aprendí a:
 
   Usar interfaces y tipos en TypeScript para mejorar la seguridad del código
