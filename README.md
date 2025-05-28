@@ -3,7 +3,7 @@
 Una aplicación sencilla de lista de tareas (Todo List) desarrollada con React, TypeScript y Vite.
 Este proyecto tiene como objetivo principal practicar y afianzar conocimientos en TypeScript, además de explorar buenas prácticas en desarrollo con React moderno.
 
-🚀 Tecnologías utilizadas
+🚀 TECNOLOGIAS UTILIZADAS
 
 ⚛️ React
 
@@ -13,7 +13,8 @@ Este proyecto tiene como objetivo principal practicar y afianzar conocimientos e
 
 🎨 CSS (+tailwind)
 
-✨ Características
+✨ CARACTERISTICAS
+
 ➕ Añadir nuevas tareas con una descripción personalizada
 
 ✅ Marcar tareas como completadas
@@ -30,7 +31,7 @@ Este proyecto tiene como objetivo principal practicar y afianzar conocimientos e
 
 ·Solo pendientes
 
-🎯 Objetivo del proyecto
+🎯 OBJETIVOS DEL PROYECTO
 Este proyecto fue creado como una forma de:
 
 Practicar el tipado estático con TypeScript
@@ -39,7 +40,7 @@ Mejorar la comprensión de componentes funcionales en React
 
 Explorar la configuración y ventajas de Vite como entorno de desarrollo
 
-🧠 Aprendizajes
+🧠 APRENDIZAJES
 Durante el desarrollo de este proyecto, aprendí a:
 
 Usar interfaces y tipos en TypeScript para mejorar la seguridad del código
