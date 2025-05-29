@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TaskList } from "./components/TaskList";
 import { TaskFilter } from "./components/TaskFilter";
 
@@ -15,6 +15,13 @@ function App() {
   const [nameError, setNameError] = useState<string | null>(null);
   const [tasks, setTasks] = useState<Task[]>([]);
   const [filter, setFilter] = useState<"all" | "completed" | "active">("all");
+
+  useEffect(() => {
+    const storedTasks = localStorage.getItem("tasks");
+    if (storedTasks) {
+      setTasks(JSON.parse(storedTasks));
+    }
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
@@ -50,6 +57,7 @@ function App() {
       description: description.trim(),
       completed: false,
     };
+    localStorage.setItem("tasks", JSON.stringify([...tasks, newTask]));
 
     setTasks((prev) => [...prev, newTask]);
 
@@ -59,11 +67,11 @@ function App() {
   };
 
   const handleToggleComplete = (id: number) => {
-    setTasks((prev) =>
-      prev.map((task) =>
-        task.id === id ? { ...task, completed: !task.completed } : task,
-      ),
+    const updatedTasks = tasks.map((task) =>
+      task.id === id ? { ...task, completed: !task.completed } : task,
     );
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+    setTasks(updatedTasks);
   };
 
   const filteredTasks = tasks.filter((task) => {
@@ -71,6 +79,21 @@ function App() {
     if (filter === "active") return !task.completed;
     return true;
   });
+
+  const onDeleteTask = (id: number) => {
+    const updatedTasks = tasks.filter((task) => task.id !== id);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+    setTasks(updatedTasks);
+  };
+  const onEditTask = (id: number, newText: string, newDescription: string) => {
+    const updatedTasks = tasks.map((task) =>
+      task.id === id
+        ? { ...task, text: newText, description: newDescription }
+        : task,
+    );
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+    setTasks(updatedTasks);
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-start py-10 px-4">
@@ -121,18 +144,8 @@ function App() {
         <TaskFilter currentFilter={filter} onFilterChange={setFilter} />
         <TaskList
           tasks={filteredTasks}
-          onDelete={(id) =>
-            setTasks((prev) => prev.filter((task) => task.id !== id))
-          }
-          onEdit={(id, newText, newDescription) =>
-            setTasks((prev) =>
-              prev.map((task) =>
-                task.id === id
-                  ? { ...task, text: newText, description: newDescription }
-                  : task,
-              ),
-            )
-          }
+          onDelete={onDeleteTask}
+          onEdit={onEditTask}
           onToggleComplete={handleToggleComplete}
         />
       </div>
