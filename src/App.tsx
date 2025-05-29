@@ -25,7 +25,6 @@ function App() {
         alert(`El texto supera los ${maxLength} caracteres`);
         return;
       }
-      console.log(e.target.value);
       setText(value);
     }
 
@@ -58,6 +57,7 @@ function App() {
     setDescription("");
     setNameError(null);
   };
+
   const handleToggleComplete = (id: number) => {
     setTasks((prev) =>
       prev.map((task) =>
@@ -65,6 +65,7 @@ function App() {
       ),
     );
   };
+
   const filteredTasks = tasks.filter((task) => {
     if (filter === "completed") return task.completed;
     if (filter === "active") return !task.completed;
@@ -72,29 +73,35 @@ function App() {
   });
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-start py-10 px-4">
+    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-start py-10 px-4">
       <div className="w-full max-w-xl">
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-4 p-6 items-center text-center"
+          className="bg-white rounded-xl shadow-md p-6 flex flex-col gap-4"
         >
-          <h1 className="mb-5 text-2xl font-bold">LISTA DE TAREAS</h1>
-          <div className="flex items-center justify-center flex-col gap-2 mb-4 w-full">
-            <label htmlFor="title">Titulo</label>
+          <h1 className="text-3xl font-bold text-center text-blue-700 mb-4">
+            MiAgenda
+          </h1>
+          <div className="flex flex-col gap-1">
+            <label htmlFor="title" className="text-sm font-medium">
+              Título
+            </label>
             <input
-              className="border p-2 rounded border-white w-full"
-              placeholder="Titulo de la tarea"
+              className="border border-gray-300 rounded text-black px-3 py-2 w-full"
+              placeholder="Título de la tarea"
               id="title"
               type="text"
               value={text}
               onChange={handleInputChange}
             />
-            <span className="text-red-500 text-sm mt-1">{nameError}</span>
+            <span className="text-red-500 text-sm">{nameError}</span>
           </div>
-          <div className="flex items-center justify-center flex-col gap-2 w-full">
-            <label htmlFor="description">Descripción</label>
+          <div className="flex flex-col gap-1">
+            <label htmlFor="description" className="text-sm font-medium">
+              Descripción
+            </label>
             <input
-              className="border p-2 rounded border-white w-full"
+              className="border border-gray-300 rounded text-black px-3 py-2 w-full"
               placeholder="Descripción de la tarea"
               id="description"
               type="text"
@@ -102,19 +109,16 @@ function App() {
               onChange={handleInputChange}
             />
           </div>
-          <div>
-            <button
-              className="text-white bg-blue-600 hover:bg-blue-700 p-2 rounded mt-4"
-              type="submit"
-            >
-              Crear
-            </button>
-          </div>
+          <button
+            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded mt-2"
+            type="submit"
+          >
+            Añadir tarea
+          </button>
         </form>
       </div>
-      <div className="w-full max-w-xl mt-6">
+      <div className="w-full max-w-xl mt-8">
         <TaskFilter currentFilter={filter} onFilterChange={setFilter} />
-
         <TaskList
           tasks={filteredTasks}
           onDelete={(id) =>

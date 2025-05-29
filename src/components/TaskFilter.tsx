@@ -10,24 +10,36 @@ export const TaskFilter = ({
   onFilterChange,
 }: TaskFilterProps) => {
   return (
-    <div className="flex justify-center gap-2">
+    <div className="flex justify-center gap-3 mt-4">
       <button
-        className={currentFilter === "all" ? "font-bold underline" : ""}
         onClick={() => onFilterChange("all")}
+        className={`px-4 py-2 rounded-full transition-colors duration-200 text-sm font-medium shadow border" ${
+          currentFilter === "all"
+            ? "bg-blue-600 text-white border-transparent"
+            : "bg-white text-blue-600 border-blue-600 hover:bg-blue-50"
+        }`}
       >
         Todas
       </button>
       <button
-        className={currentFilter === "completed" ? "font-bold underline" : ""}
         onClick={() => onFilterChange("completed")}
+        className={`px-4 py-2 rounded-full transition-colors duration-200 text-sm font-medium shadow border" ${
+          currentFilter === "completed"
+            ? "bg-blue-600 text-white border-transparent"
+            : "bg-white text-blue-600 border-blue-600 hover:bg-blue-50"
+        }`}
       >
         Completadas
       </button>
       <button
-        className={currentFilter === "active" ? "font-bold underline" : ""}
         onClick={() => onFilterChange("active")}
+        className={`px-4 py-2 rounded-full transition-colors duration-200 text-sm font-medium shadow border" ${
+          currentFilter === "active"
+            ? "bg-blue-600 text-white border-transparent"
+            : "bg-white text-blue-600 border-blue-600 hover:bg-blue-50"
+        }`}
       >
-        Pendientes
+        Activas
       </button>
     </div>
   );

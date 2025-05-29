@@ -44,14 +44,17 @@ export const TaskList = ({
     setEditText("");
     setEditDescription("");
   };
+
   return (
     <div className="flex flex-col items-center mt-4">
-      <h2 className="mb-4 text-xl font-bold mb-4">Lista de Tareas</h2>
-      <ul className="w-full max-w-md">
+      <h2 className="text-2xl font-bold text-blue-600 tracking-wide mb-6 border-b pb-2 w-full text-center">
+        Lista de Tareas
+      </h2>
+      <ul className="w-full max-w-xl space-y-4">
         {tasks.map((task) => (
           <li
             key={task.id}
-            className="flex flex-col gap-2 p-2 border-b rounded mb-2"
+            className="bg-white rounded-xl shadow flex flex-col gap-2 p-4"
           >
             {editingId === task.id ? (
               <>
@@ -59,63 +62,66 @@ export const TaskList = ({
                   type="text"
                   value={editText}
                   onChange={(e) => setEditText(e.target.value)}
-                  className="border p-1 rounded w-full"
+                  className="border border-gray-300 rounded text-black px-3 py-2 w-full"
                 />
                 <input
                   type="text"
                   value={editDescription}
                   onChange={(e) => setEditDescription(e.target.value)}
-                  className="border p-1 rounded w-full"
+                  className="border border-gray-300 rounded text-black px-3 py-2 w-full"
                 />
-                <div className="flex justify-end gap-2 mt-2">
+                <div className="flex justify-end gap-2">
                   <button
                     onClick={saveEdit}
                     className="text-green-600 hover:underline"
                   >
                     Guardar
                   </button>
-                  <button onClick={cancelEdit}>Cancelar</button>
+                  <button
+                    onClick={cancelEdit}
+                    className="text-wihte-600 hover:underline"
+                  >
+                    Cancelar
+                  </button>
                 </div>
               </>
             ) : (
-              <>
-                <div className="flex justify-between items-center">
-                  <div className="flex items-start gap-2">
-                    <input
-                      type="checkbox"
-                      checked={task.completed}
-                      onChange={() => onToggleComplete(task.id)}
-                      className="mt-1"
-                    />
-                    <div>
-                      <strong
-                        className={
-                          task.completed ? "line-through text-gray-400" : ""
-                        }
-                      >
-                        {task.text}
-                      </strong>
-                      {task.description && (
-                        <p className="text-sm">{task.description}</p>
-                      )}
-                    </div>
-                  </div>
-                  <div className="flex justify-end gap-2">
-                    <button
-                      onClick={() => startEditing(task)}
-                      className="text-blue-500 hover:underline"
+              <div className="flex justify-between items-start">
+                <div className="flex gap-3">
+                  <input
+                    type="checkbox"
+                    checked={task.completed}
+                    onChange={() => onToggleComplete(task.id)}
+                    className="mt-1 accent-blue-600"
+                  />
+                  <div>
+                    <p
+                      className={`font-semibold ${task.completed ? "line-through text-gray-400" : "text-gray-800"}`}
                     >
-                      <i className="fa-regular fa-pen-to-square"></i>
-                    </button>
-                    <button
-                      onClick={() => onDelete(task.id)}
-                      className="text-red-500 hover:underline"
-                    >
-                      <i className="fa-solid fa-trash"></i>
-                    </button>
+                      {task.text}
+                    </p>
+                    {task.description && (
+                      <p className="text-sm text-gray-500">
+                        {task.description}
+                      </p>
+                    )}
                   </div>
                 </div>
-              </>
+                <div className="flex gap-3 text-xl text-gray-500">
+                  <button
+                    onClick={() => startEditing(task)}
+                    className="hover:text-blue-600"
+                  >
+                    <i className="fa-regular fa-pen-to-square"></i>
+                  </button>
+                  <button
+                    onClick={() => onDelete(task.id)}
+                    className="hover:text-red-600"
+                  >
+                    <i className="fa-solid fa-trash"></i>
+                  </button>
+                </div>
+              </div>
             )}
           </li>
         ))}
